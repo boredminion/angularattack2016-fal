@@ -6,18 +6,26 @@
     <!-- 1. Load libraries -->
     <!-- IE required polyfill -->
     <script src="https://rumblex.s3.amazonaws.com/starter/es6-shim/es6-shim.min.js"></script>
-    <script src="https://rumblex.s3.amazonaws.com/starter/zone.js/dist/zone.js"></script>
-    <script src="https://rumblex.s3.amazonaws.com/starter/reflect-metadata/Reflect.js"></script>
-    <script src="https://rumblex.s3.amazonaws.com/starter/rxjs/bundles/Rx.umd.js"></script>
-    <script src="https://rumblex.s3.amazonaws.com/starter/@angular/core/core.umd.js"></script>
-    <script src="https://rumblex.s3.amazonaws.com/starter/@angular/common/common.umd.js"></script>
-    <script src="https://rumblex.s3.amazonaws.com/starter/@angular/compiler/compiler.umd.js"></script>
-    <script src="https://rumblex.s3.amazonaws.com/starter/@angular/platform-browser/platform-browser.umd.js"></script>
-    <script src="https://rumblex.s3.amazonaws.com/starter/@angular/platform-browser-dynamic/platform-browser-dynamic.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system-polyfills.js"></script>
+    <script src="https://npmcdn.com/angular2@2.0.0-beta.17/es6/dev/src/testing/shims_for_IE.js"></script>
+
+    <script src="https://code.angularjs.org/2.0.0-beta.17/angular2-polyfills.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system.js"></script>
+    <script src="https://npmcdn.com/typescript@1.8.10/lib/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.17/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.17/angular2.dev.js"></script>
+
     <!-- 2. Load our 'modules' -->
-    <script src='app/app.component.js'></script>
-    <script src='app/main.js'></script>
+    <script>
+      System.config({
+        packages: {'app': {defaultExtension: 'js'}}
+      });
+
+      System.import('app/main')
+      .then(null, console.error.bind(console));
+    </script>
   </head>
+
   <!-- 3. Display the application -->
   <body>
     <my-app>Loading...</my-app>
