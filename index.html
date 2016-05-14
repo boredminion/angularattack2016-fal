@@ -3,6 +3,8 @@
     <title>Angular 2 QuickStart JS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="node_modules/ng2-material/dist/ng2-material.css">
+    <link rel="stylesheet" href="node_modules/ng2-material/dist/font.css">
     <!-- 1. Load libraries -->
     <!-- IE required polyfill -->
     <script src="https://rumblex.s3.amazonaws.com/starter/es6-shim/es6-shim.min.js"></script>
@@ -11,14 +13,23 @@
 
     <script src="https://code.angularjs.org/2.0.0-beta.17/angular2-polyfills.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system.js"></script>
-    <script src="https://npmcdn.com/typescript@1.8.10/lib/typescript.js"></script>
     <script src="https://code.angularjs.org/2.0.0-beta.17/Rx.js"></script>
     <script src="https://code.angularjs.org/2.0.0-beta.17/angular2.dev.js"></script>
 
     <!-- 2. Load our 'modules' -->
     <script>
       System.config({
-        packages: {'app': {defaultExtension: 'js'}}
+        map : {
+          'app':           'app',
+          'ng2-material':  'node_modules/ng2-material'
+        },
+        packages: {
+          'app': {defaultExtension: 'js'},
+          'ng2-material': { defaultExtension: 'js'}
+        },
+        paths: {
+          'angular2/*': 'angular2/*'
+        }
       });
 
       System.import('app/main')
