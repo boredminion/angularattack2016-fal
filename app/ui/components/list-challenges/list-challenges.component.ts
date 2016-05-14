@@ -1,9 +1,7 @@
-import { Component } from 'angular2/core';
+import { Component, OnInit } from 'angular2/core';
 import { Challenge } from '../../service/challenge/challenge';
 import { ShowChallengeComponent } from '../show-challenge/show-challenge.component';
-
-//Temp
-import { CHALLENGES } from '../../service/challenge/mock-challenges';
+import { ChallengeService } from '../../service/challenge/challenge.service';
 
 @Component({
   selector: 'list-challenges',
@@ -15,12 +13,23 @@ import { CHALLENGES } from '../../service/challenge/mock-challenges';
     </ul>
     <show-challenge [challenge]="selectedChallenge"></show-challenge>
   `,
-  directives : [ ShowChallengeComponent ]
+  directives : [ ShowChallengeComponent ],
+  providers : [ ChallengeService ]
 })
 
-export class ListChallengesComponent {
-  challenges = CHALLENGES;
+export class ListChallengesComponent implements OnInit {
+  challenges : Challenge[];
   selectedChallenge: Challenge;
+
+  constructor(private challengeService: ChallengeService) {}
+
+  getChallenges(){
+    this.challengeService.getChallenges().then(challenges => this.challenges = challenges);
+  }
+
+  ngOnInit(){
+    this.getChallenges();
+  }
 
   onSelect(challenge: Challenge) {
     this.selectedChallenge = challenge;
