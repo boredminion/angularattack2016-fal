@@ -1,0 +1,6 @@
+.gitignore
+.surgeignore
+CNAME
+README.md
+*.js
+*.js.map
