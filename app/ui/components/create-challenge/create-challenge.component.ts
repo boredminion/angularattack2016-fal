@@ -50,7 +50,6 @@ export class CreateChallengeComponent {
 
   add(newName: string, newDescription: string) {
     this.challengeService.addChallenge({ id: Date.now(), name: newName, description: newDescription });
-    let link = ['Challenges', {}];
-    this.router.navigate(link);
+    window.history.back();
   }
 }
