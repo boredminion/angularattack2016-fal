@@ -4,6 +4,7 @@ import {Navigation} from '../navigation/navigation.component';
 import {HomeTitleComponent} from '../home-title/home-title.component';
 import { CodeEditorComponent } from '../code-editor/code-editor.component';
 import { ListChallengesComponent } from '../list-challenges/list-challenges.component';
+import { CreateChallengeComponent } from '../create-challenge/create-challenge.component';
 
 @Component({
     selector: 'my-app',
@@ -13,6 +14,7 @@ import { ListChallengesComponent } from '../list-challenges/list-challenges.comp
         <home-title></home-title>
         <code-editor></code-editor>
         <list-challenges></list-challenges>
+        <create-challenge></create-challenge>
       </md-content>
     `,
     directives: [
@@ -20,7 +22,8 @@ import { ListChallengesComponent } from '../list-challenges/list-challenges.comp
       Navigation,
       HomeTitleComponent,
       CodeEditorComponent,
-      ListChallengesComponent
+      ListChallengesComponent,
+      CreateChallengeComponent
     ]
 })
 
