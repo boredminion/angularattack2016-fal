@@ -8,7 +8,7 @@ export class CodeService {
   code: FirebaseObjectObservable<any>;
 
   constructor(private af: AngularFire) {
-    this.code = af.database.object('/myCode');
+    this.code = af.database.object('/myCode/' + Date.now());
   }
 
   getCode() {
