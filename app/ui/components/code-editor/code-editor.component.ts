@@ -9,8 +9,7 @@ import { Observable } from 'rxjs/Rx';
   template: `
   <p>{{ message$ | async }}</p>
   <textarea type="text" [ngFormControl]="code"></textarea>
-  `,
-  providers: [ CodeService ]
+  `
 })
 
 export class CodeEditorComponent implements OnInit {
