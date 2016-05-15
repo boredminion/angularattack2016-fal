@@ -7,7 +7,7 @@ import { ChallengeService } from '../../service/challenge/challenge.service';
   selector: 'list-challenges',
   template: `
     <ul>
-      <li *ngFor="let challenge of challenges" (click)="onSelect(challenge)">
+      <li *ngFor="let challenge of challenges | async" (click)="onSelect(challenge)">
         {{challenge.name}}
       </li>
     </ul>
@@ -24,7 +24,7 @@ export class ListChallengesComponent implements OnInit {
   constructor(private challengeService: ChallengeService) {}
 
   getChallenges(){
-    this.challengeService.getChallenges().then(challenges => this.challenges = challenges);
+    this.challengeService.listChallenges().then(challenges => this.challenges = challenges);
   }
 
   ngOnInit(){
