@@ -19,6 +19,6 @@ export class CreateChallengeComponent {
   constructor(private challengeService: ChallengeService) { }
 
   add(newName: string, newDescription: string) {
-    this.challengeService.addChallenge({ name: newName, description: newDescription });
+    this.challengeService.addChallenge({ id: Date.now(), name: newName, description: newDescription });
   }
 }
