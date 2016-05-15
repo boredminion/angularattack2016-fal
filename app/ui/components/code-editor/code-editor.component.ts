@@ -7,8 +7,9 @@ import { Observable } from 'rxjs/Rx';
 @Component({
   selector: 'code-editor',
   template: `
-  <p>{{ message$ | async }}</p>
-  <textarea type="text" [ngFormControl]="code"></textarea>
+  <p class="md-title">{{ message$ | async }}</p>
+  <p class="md-subhead">Code</p>
+  <textarea type="text" [ngFormControl]="code" style="width:75%;height:125px;"></textarea>
   `
 })
 
