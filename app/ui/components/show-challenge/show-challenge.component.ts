@@ -9,12 +9,12 @@ import { CodeEditorComponent } from '../code-editor/code-editor.component';
 @Component({
   selector: 'show-challenge',
   template: `
+  <div class="md-padding" layout="column" layout-wrap layout-fill>
     <code-editor></code-editor>
-    <div *ngIf="challenge">
-      <h3>{{challenge.name}}</h3>
-      <p>{{challenge.description}}</p>
-    </div>
-    <button (click)="goBack()">Back</button>
+    <div flex layout="row" layout-align="center center">
+      <button md-raised-button class="md-raised md-primary" (click)="goBack()">Back</button>
+    <div>
+  </div>
   `,
   directives : [
     CodeEditorComponent
@@ -23,15 +23,25 @@ import { CodeEditorComponent } from '../code-editor/code-editor.component';
 
 export class ShowChallengeComponent implements OnInit {
   challenge: Challenge;
+  name: string;
+  description: string;
 
-  constructor(private routeParams: RouteParams, private challengeService: ChallengeService) {}
+  constructor(private routeParams: RouteParams, private challengeService: ChallengeService) {
+    this.name = '';
+    this.description = '';
+  }
 
   ngOnInit(){
     let id = +this.routeParams.get('id');
-    this.challengeService.getChallenge(id).then(challenge => this.challenge = challenge);
+    this.challengeService.getChallenge(id).then(challenge => {
+      this.challenge = challenge;
+    });
   }
 
   goBack() {
      window.history.back();
    }
 }
+
+// <h3>{{challenge.name}}</h3>
+// <p>{{challenge.description}}</p>
