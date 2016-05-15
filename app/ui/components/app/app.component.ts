@@ -1,30 +1,32 @@
-import {Component} from 'angular2/core';
-import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
+import { Component } from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import {Navigation} from '../navigation/navigation.component';
-import {HomeTitleComponent} from '../home-title/home-title.component';
-import { CodeEditorComponent } from '../code-editor/code-editor.component';
-import { ListChallengesComponent } from '../list-challenges/list-challenges.component';
-import { CreateChallengeComponent } from '../create-challenge/create-challenge.component';
+import { CodeChallenge } from '../code-challenge/code-challenge.component';
 
 @Component({
-    selector: 'my-app',
-    template: `
-      <navigation></navigation>
-      <md-content>
-        <home-title></home-title>
-        <code-editor></code-editor>
-        <list-challenges></list-challenges>
-        <create-challenge></create-challenge>
-      </md-content>
-    `,
-    directives: [
-      MATERIAL_DIRECTIVES,
-      Navigation,
-      HomeTitleComponent,
-      CodeEditorComponent,
-      ListChallengesComponent,
-      CreateChallengeComponent
-    ]
+  selector: 'my-app',
+  template: `
+    <navigation></navigation>
+    <router-outlet></router-outlet>
+  `,
+  directives: [
+    ROUTER_DIRECTIVES,
+    CodeChallenge,
+    Navigation
+  ],
+  providers : [
+    ROUTER_PROVIDERS
+  ]
 })
 
-export class AppComponent { }
+@RouteConfig([
+  {
+    path: '/challenges',
+    name: 'Challenges',
+    component: CodeChallenge,
+    useAsDefault: true
+  }
+])
+
+export class AppComponent {
+}
