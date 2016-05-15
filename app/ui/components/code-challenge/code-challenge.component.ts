@@ -8,13 +8,14 @@ import { ListChallengesComponent } from '../list-challenges/list-challenges.comp
 @Component({
     selector: 'code-challenge',
     template: `
-      <md-content class="md-padding" layout="column" layout-wrap layout-fill>
+      <div class="md-padding" layout="row" layout-wrap layout-fill>
         <home-title></home-title>
-        <list-challenges></list-challenges>
-        <div layout="row" layout-align="center center">
+        <list-challenges flex></list-challenges>
+        <br>
+        <div flex layout="row" layout-align="center center">
           <a md-button class="md-primary" [routerLink]="['ChallengeAdd']" style="padding-right:5px;">Creat Challenge</a>
         </div>
-      </md-content>
+      </div>
     `,
     directives: [
       MATERIAL_DIRECTIVES,
