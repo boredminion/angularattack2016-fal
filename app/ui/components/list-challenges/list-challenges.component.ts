@@ -23,12 +23,12 @@ export class ListChallengesComponent implements OnInit {
 
   constructor(private challengeService: ChallengeService) {}
 
-  getChallenges(){
+  listChallenges(){
     this.challengeService.listChallenges().then(challenges => this.challenges = challenges);
   }
 
   ngOnInit(){
-    this.getChallenges();
+    this.listChallenges();
   }
 
   onSelect(challenge: Challenge) {
