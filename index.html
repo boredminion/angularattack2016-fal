@@ -21,14 +21,20 @@
       System.config({
         map : {
           'app':           'app',
-          'ng2-material':  'https://npmcdn.com/ng2-material@0.3.8'
+          'ng2-material':  'https://npmcdn.com/ng2-material@0.3.8',
+          'firebase':      'https://npmcdn.com/firebase@2.4.2/lib/firebase-web.js',
+          'angularfire2':  'https://npmcdn.com/angularfire2@2.0.0-beta.0'
         },
         packages: {
           'app': {defaultExtension: 'js'},
-          'ng2-material': { defaultExtension: 'js'}
+          'ng2-material': { defaultExtension: 'js'},
+          'angularfire2': { defaultExtension: 'js', main: 'angularfire2.js'}
         },
         paths: {
-          'angular2/*': 'angular2/*'
+          'angular2/*': 'angular2/*',
+          '@angular/*': 'angular2/*',
+          'ng2-material/*': 'ng2-material/*',
+          'angularfire2/*': 'angularfire2/*'
         }
       });
 
