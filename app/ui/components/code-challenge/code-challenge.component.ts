@@ -8,8 +8,7 @@ import { ListChallengesComponent } from '../list-challenges/list-challenges.comp
 @Component({
     selector: 'code-challenge',
     template: `
-      <div class="md-padding" layout="row" layout-wrap layout-fill>
-        <home-title></home-title>
+      <div class="md-padding" layout="column" layout-wrap layout-fill>
         <list-challenges flex></list-challenges>
         <br>
         <div flex layout="row" layout-align="center center">
