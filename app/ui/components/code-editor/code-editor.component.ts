@@ -31,7 +31,9 @@ export class CodeEditorComponent implements OnInit {
 
   getCodeData () {
     this.codeData = this.codeService.getCode();
-    this.codeData.subscribe(data => this.code.updateValue(data.code));
+    this.codeData.subscribe(data => {
+      if(data !== null) this.code.updateValue(data.code);
+    });
   }
 
   add(code: string){
